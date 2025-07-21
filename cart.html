@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <title>Cart-app</title>
+</head>
+
+<body>
+    <!-- <div class="covr" > -->
+    <p id="myDIV">
+        <!-- This is my DIV element. -->
+    </p>
+<!-- </div> -->
+    <div class="big-boss">
+        <div class="boss"> 
+
+            <div class="heading"><strong>Log In</strong></div>
+            <form id="login-form">
+                <div class="login-body">
+                    <div class="ds-1"><label id="email" for="user-Email">Email adress</label>
+                        <br />
+                        <input type="email" placeholder="Enter email" name="email" id="login-email" />
+                        <p id="foremail" class="mn" ></p>
+                    </div>
+                    <div class="ds-2">
+                        <label id="pass" for="user-password">Password</label>
+                        <br />
+                        <input type="password" placeholder="password" name="pass" id="login-password" />
+                        <p id="forpass" class="mn" ></p>
+                        <label class="switch">
+                            <input type="checkbox" onclick="showPass()">
+                            <span class="slider round"></span>
+                          </label>
+                          
+                        <!-- <input type="checkbox" class="show-hide-btn" onclick="showPass()"> -->
+
+                    </div>
+                    <div class="ds-3">
+                        <div class="straight-line">
+                            <span class="forg-pass">
+                                <a class="one" href="/login">Forgotten password?</a>
+                            </span>
+                        </div>
+                        <div class="straight-line">
+                            <span class="creat-one-btn">
+                                No account?
+                                <a class="one" href="cart-two.html">Create one</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="login-btn-cvr"> 
+                    <button id="login-btttn" onclick="login()" class="login-btn">  Log In </button>
+
+                </div>
+            </form>
+        </div>
+    </div>  
+    <script src="cart.js"></script>
+    <!-- <script src="cart-two.js" ></script> -->
+</body>
+
+</html>
