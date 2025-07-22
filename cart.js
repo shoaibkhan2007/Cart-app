@@ -161,7 +161,7 @@ function login() {
         text="Pass matched";
         window.location.href = 'cart-three.html';
     }
-    // document.getElementById("foremail").innerHTML= text;
+    document.getElementById("foremail").innerHTML= text;
     document.getElementById("forpass").innerHTML= text;
     console.log("working?")
 }

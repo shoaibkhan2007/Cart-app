@@ -155,6 +155,7 @@ img {
 }
 
 .image-container2 {
+    height: 121px;
     overflow: hidden;
     border-radius: 20px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -237,7 +238,7 @@ a {
     border-bottom-left-radius: 60px;
     border-top-left-radius: 60px;
     width: 540px;
-    height: 1000px;
+    height: 1420px;
     background-color: #070707;
     margin-top: -65px;
     padding-top: 50px;

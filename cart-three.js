@@ -29,7 +29,7 @@ function displayproducts(itemsToDisplay) {
         <img src="${item.image}" class="prod-img" />
       </div>
       <div class="dk">
-
+      <h4>${item.name}</h4>
         <p class="price-item">Price: ${item.price}</p>
         <button class="ww" data-id="${item.id}">Add to cart</button>
       </div>
@@ -52,7 +52,7 @@ function displayproducts(itemsToDisplay) {
 function addToCart(productId) {
   const productToAdd = cartItems.find(p => p.id === productId);
   if (!productToAdd) {
-    console.warn('Product not found!');
+    alert('Product not found!');
     return;
   }
 
