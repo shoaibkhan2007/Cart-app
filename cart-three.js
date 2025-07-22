@@ -9,17 +9,17 @@ const cartItems = [
 
 let cart = [];
 
-function filterCart(category) {
+function filterproducts(category) {
   let filteredCart = category === 'All'
     ? cartItems
     : cartItems.filter(item => item.category === category);
 
-  renderCart(filteredCart);
+  displayproducts(filteredCart);
 }
 
-function renderCart(itemsToDisplay) {
-  const cartDisplay = document.getElementById('cart-display');
-  cartDisplay.innerHTML = '';
+function displayproducts(itemsToDisplay) {
+  const productDisplay = document.getElementById('cart-display');
+  productDisplay.innerHTML = '';
 
   itemsToDisplay.forEach(item => {
     const productElement = document.createElement('div');
@@ -32,9 +32,10 @@ function renderCart(itemsToDisplay) {
 
         <p class="price-item">Price: ${item.price}</p>
         <button class="ww" data-id="${item.id}">Add to cart</button>
+        <button class="dd" data-id="${item.id}">Delete</button>
       </div>
     `;
-    cartDisplay.appendChild(productElement);
+    productDisplay.appendChild(productElement);
   });
 
   // Attach event listeners to buttons
@@ -45,62 +46,128 @@ function renderCart(itemsToDisplay) {
       addToCart(productId);
     });
   });
+
+
+
+  const btns = document.querySelectorAll('.dd');
+  btns.forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-id');
+      delbtn(productId);
+    });
+  });
+
+
+}
+function addToCart(productId) {
+  const productToAdd = cartItems.find(p => p.id === productId);
+  if (!productToAdd) {
+    console.warn('Product not found!');
+    return;
+  }
+
+  const existingCartItem = cart.find(item => item.id === productId);
+  if (existingCartItem) {
+    // Increase quantity
+    cart = cart.map(item =>
+      item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
+    );
+  } else {
+    // Add new product
+    cart.push({ ...productToAdd, quantity: 1 });
+  }
+
+  displayCart(); // Update UI
 }
 
-// function addToCart(productId) {
-//   const productToAdd = cartItems.find(p => p.id === productId);
-//   if (!productToAdd) {
-//     console.warn('Product not found!');
-//     return;
-//   }
+const delbtn = (productId) =>{
+  cart = cart.filter(item => item.id !== productId);
+  displayCart()
+}
 
-//   const existingCartItem = cart.find(item => item.id === productId);
+const decreaseQuantity = (productId) => {
+  const itemIndex = cart.findIndex(item => item.id === productId);
+  if (itemIndex > -1) {
+    const item = cart[itemIndex];
+    if (item.quantity > 1) {
+      cart[itemIndex].quantity -= 1;
+    }
+     else {
+      cart.splice(itemIndex, 1); // Remove item if quantity is 1
+    }
+    displayCart();
+  }
+};
 
-//   if (existingCartItem) {
-//     // Increase quantity
-//     cart = cart.map(item =>
-//       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
-//     );
-//   } else {
-//     // Add new product
-//     cart.push({ ...productToAdd, quantity: 1 });
-//   }
 
-//   displayCart(); // Update UI
-// }
+function displayCart() {
+  const cartContainer = document.getElementById('cart-container');
+  cartContainer.innerHTML = '';
 
-// function displayCart() {
-//   const cartContainer = document.getElementById('cart-container');
-//   cartContainer.innerHTML = '';
-
-//   if (cart.length === 0) {
-//     cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-//     return;
-//   }
-//   const cartHTML = cart.map(item => `
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+    return;
+  }
+  const cartHTML = cart.map(item => `
 
     
 
-//     <div class="somethingCrazy" >
-//     <div id="spec" class="image-container2">
-//         <img src="${item.image}" class="prod-img2" />
-//       </div>
-//       <div class="fortxt">
-//       <h4>${item.name}</h4>
-//       <p>Quantity: ${item.quantity}</p>
-//       <p class="subtotal-amount" >Subtotal: ${item.price * item.quantity}</p>
+    <div class="somethingCrazy" >
+    <div id="spec" class="image-container2">
+        <img src="${item.image}" class="prod-img2" />
+      </div>
+      <div class="fortxt">
+      <h4>${item.name}</h4>
+      <p>Quantity: ${item.quantity}</p>
+      <p class="subtotal-amount" >Subtotal: ${item.price * item.quantity}</p>
+       <button class="ws" data-id="${item.id}">Increase</button>
+       <button style="width: 80px;" class="tf" data-id="${item.id}">Decrease</button>
+      </div>
+    </div>
+  `).join('');
 
-//       </div>
-//     </div>
-//   `).join('');
+  const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  cartContainer.innerHTML = cartHTML + `
+    <div class="total-amount">
+      <h3 style="text-align:center" >Total Rs: ${totalAmount}</h3>
+    </div>
+  `;
 
-//   cartContainer.innerHTML = cartHTML;
-// }
+  const increasebtn = document.querySelectorAll('.ws');
+  increasebtn.forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-id');
+      addToCart(productId);
+    });
+  });
 
-// // Dropdown handling
-// function dropdown() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
+  const decbtn = document.querySelectorAll('.tf');
+  decbtn.forEach(button => {
+    button.addEventListener('click', () => {
+      const productId = button.getAttribute('data-id');
+      decreaseQuantity (productId);
+    });
+  });
+
+}
+
+// Dropdown handling
+function dropdown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 function toggleCart() {
   const cartContainer = document.getElementById('cart-container');
@@ -114,7 +181,7 @@ function toggleCart() {
 
 // Initial render
 document.addEventListener('DOMContentLoaded', () => {
-  renderCart(cartItems); // Show all products initially
+  displayproducts(cartItems); // Show all products initially
   displayCart();          // Show empty cart
 });
 
