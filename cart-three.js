@@ -32,13 +32,11 @@ function displayproducts(itemsToDisplay) {
 
         <p class="price-item">Price: ${item.price}</p>
         <button class="ww" data-id="${item.id}">Add to cart</button>
-        <button class="dd" data-id="${item.id}">Delete</button>
       </div>
     `;
     productDisplay.appendChild(productElement);
   });
 
-  // Attach event listeners to buttons
   const buttons = document.querySelectorAll('.ww');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -48,14 +46,6 @@ function displayproducts(itemsToDisplay) {
   });
 
 
-
-  const btns = document.querySelectorAll('.dd');
-  btns.forEach(button => {
-    button.addEventListener('click', () => {
-      const productId = button.getAttribute('data-id');
-      delbtn(productId);
-    });
-  });
 
 
 }
@@ -68,21 +58,14 @@ function addToCart(productId) {
 
   const existingCartItem = cart.find(item => item.id === productId);
   if (existingCartItem) {
-    // Increase quantity
     cart = cart.map(item =>
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
   } else {
-    // Add new product
     cart.push({ ...productToAdd, quantity: 1 });
   }
 
-  displayCart(); // Update UI
-}
-
-const delbtn = (productId) =>{
-  cart = cart.filter(item => item.id !== productId);
-  displayCart()
+  displayCart();
 }
 
 const decreaseQuantity = (productId) => {
@@ -92,8 +75,8 @@ const decreaseQuantity = (productId) => {
     if (item.quantity > 1) {
       cart[itemIndex].quantity -= 1;
     }
-     else {
-      cart.splice(itemIndex, 1); // Remove item if quantity is 1
+    else {
+      cart.splice(itemIndex, 1);
     }
     displayCart();
   }
@@ -145,18 +128,17 @@ function displayCart() {
   decbtn.forEach(button => {
     button.addEventListener('click', () => {
       const productId = button.getAttribute('data-id');
-      decreaseQuantity (productId);
+      decreaseQuantity(productId);
     });
   });
 
 }
 
-// Dropdown handling
 function dropdown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -176,161 +158,11 @@ function toggleCart() {
   } else {
     cartContainer.style.display = 'none';
   }
-} 
+}
 
 
-// Initial render
+
 document.addEventListener('DOMContentLoaded', () => {
-  displayproducts(cartItems); // Show all products initially
-  displayCart();          // Show empty cart
+  displayproducts(cartItems);
+  displayCart();
 });
-
-
-
-
-// const user = JSON.parse(localStorage.getItem("loggedInUser"));
-//     if (user) {
-//       document.getElementById("user-greeting").innerText = "Hello, ${user.firstName} ${user.lastName}!;"
-//     } else {
-//       window.location.href = "cart.html"; // If not logged in
-//     }
-
-//     function logout() {
-//       localStorage.removeItem("loggedInUser");
-//       window.location.href = "cart.html";
-//     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// / function jj(index){
-  //  let  subtotal=cart.price* cart.quantity;
-  // let total = cart[index] *subtotal;
-  // console.log("total");
-  // console.log(total);
-  // }
-  // console.log(jj());
-  
-  
-  // const subtotalElements = document.querySelectorAll('.subtotal-amount');
-  // let total = 0;
-  // // var sub = cart.price*cart.quantity 
-  
-  // subtotalElements.forEach(element => {
-  //     const value = parseFloat(element.innerText); // Convert text content to a number
-  //     if (!isNaN(value)) { // Ensure it's a valid number
-  //         total += value;
-  //     }
-  // });
-  
-  // console.log("Total:", total);
-  
-  
-  
-  
-  
-  // var result = arr.reduce(function (acc, obj) { return acc.price * obj.quantity; }, 0);
-  // console.log(result);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// window.onclick = function (event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     const dropdowns = document.getElementsByClassName("dropdown-content");
-//     for (let i = 0; i < dropdowns.length; i++) {
-//       let openDropdown = dropdowns[i];
-//       if (dropdowns.classList.contains('show')) {
-//         dropdowns.classList.remove('show');
-//       }
-//     }
-//   }
-// };
