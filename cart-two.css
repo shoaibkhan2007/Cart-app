@@ -26,7 +26,7 @@ body {
 
 .boss {
     width: 400px;
-    padding: 20px 25px 20px 25px;
+    padding: 30px 20px;
     /* background: rgba(59, 55, 55, 0.7); */
     backdrop-filter: blur(8px);
     border-radius: 15px;
@@ -37,8 +37,7 @@ body {
 }
 
 .heading {
-    padding: 8px 4px;
-    text-align: center;
+    padding: 6px 26px;
     font-size: 40px;
     color: #5d5de3;
     color: rgb(87, 85, 85);
@@ -46,7 +45,7 @@ body {
 }
 
 .Register-body {
-    padding: 16px 10px;
+    padding: 16px 7px;
     /* border-top: 1px solid;
     border-bottom: 1px solid beige;
     border-bottom-style: outset;
@@ -56,7 +55,7 @@ body {
 .sign-up {
     display: flex;
     justify-content: space-between;
-    width: 336px;
+    width: 380px;
 }
 
 .as-one {
@@ -64,7 +63,7 @@ body {
 }
 
 #signup-email {
-    width: 320px;
+    width: 357px;;
     height: 30px;
     border-radius: 4px;
     border: none;
@@ -83,6 +82,13 @@ body {
     color: black;
     padding: 6px 12px;
     font-size: 16px;
+}
+#lik{
+    padding: 13px 2px;
+    margin-left: -5px;
+    border: 1px solid;
+    border-radius: 0px 4px 4px 0px;
+    /* display: inline; */
 }
 
 #first-name {
@@ -108,7 +114,7 @@ body {
 }
 
 #confirm-password {
-    width: 320px;
+    width: 357px;
     height: 30px;
     border-radius: 4px;
     border: none;

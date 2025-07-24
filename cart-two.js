@@ -1,16 +1,19 @@
 
-const  showPass = () => {
+function showPass() {
   var x = document.getElementById("signup-password");
+  var f =document.getElementById("lik");
   if (x.type === "password") {
     x.type = "text";
-    x.innerHTML = "show"
+    f.innerHTML ="Hide";
   } else {
     x.type = "password";
-    x.innerHTML = "hide";
+    f.innerHTML ="Show"
   }
-
 }
+document.getElementById("lik").addEventListener("click", function (event) {
+  event.preventDefault();
 
+});
 
 document.getElementById("login-btttn").addEventListener("click", function(event){
   event.preventDefault(); 
@@ -21,9 +24,9 @@ document.getElementById("login-btttn").addEventListener("click", function(event)
 
 });
 
-if(localStorage.users){
-  ll=JSON.parse(localStorage.getItem("txt"))
-}
+// if(localStorage.users){
+//   ll=JSON.parse(localStorage.getItem("txt"))
+// }
 
 function signUp() {
   const firstName = document.getElementById("first-name").value.trim();
@@ -33,28 +36,35 @@ function signUp() {
   const confirmPassword = document.getElementById("confirm-password").value;
   const msg = document.getElementById("myDIV");
 
+  // const newUser = {
+  //   firstName,
+  //   lastName,
+  //   email,
+  //   password
+  // };
+
+  if (!firstName || !lastName || !email || !password || !confirmPassword) {
+    msg.innerText = "Please fill all fields.";
+    return;
+  }
+   if (password !== confirmPassword) {
+    msg.innerText = "Passwords do not match.";
+    return;
+  
+  }
+
+  let users =  JSON.parse(localStorage.getItem("txt")) || [];
+  const userExists = users.some(user => user.email === email);
+  if (userExists) {
+    msg.innerText = "User with this email already exists.";
+    return;
+  }
   const newUser = {
     firstName,
     lastName,
     email,
     password
   };
-
-  if (!firstName || !lastName || !email || !password || !confirmPassword) {
-    msg.innerText = "Please fill all fields.";
-  }
-  if (password !== confirmPassword) {
-    msg.innerText = "Passwords do not match.";
-  
-  }
-
-  let users = [];
-  const userExists = users.some(user => user.email === email);
-  if (userExists) {
-    msg.innerText = "User with this email already exists.";
-    
-  }
-
 
   users.push(newUser);
   localStorage.setItem("txt", JSON.stringify(users));

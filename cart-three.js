@@ -7,7 +7,14 @@ const cartItems = [
   { id: 'p5', name: 'Keyboard', category: 'Computer Accessories', image: 'product-img.jpg', price: 75, quantity: 1 }
 ];
 
-let cart = [];
+// let cart = [];
+//  useEffect(() => {
+//     let items=JSON.parse(localStorage.getItem("txt"));
+//     if(items){
+//      displayCart ()
+//     }
+//   }, []);
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function filterproducts(category) {
   let filteredCart = category === 'All'
@@ -104,8 +111,8 @@ function displayCart() {
        <button style="width: 80px;" class="tf" data-id="${item.id}">Decrease</button>
       </div>
     </div>
-  });
-  `);
+  
+  `).join("");
 
   let totalAmount = 0;
   cart.forEach(item => {
@@ -134,6 +141,20 @@ function displayCart() {
       decreaseQuantity(productId);
     });
   });
+
+ 
+
+
+  // let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // function addToCart(product) {
+    // cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  // }
+  
+
+
+
+
 
 }
 

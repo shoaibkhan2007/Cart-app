@@ -4,15 +4,19 @@
 
 function showPass() {
     var x = document.getElementById("login-password");
+    var f =document.getElementById("lik");
     if (x.type === "password") {
-        x.type = "text";
-        x.innerHTML = "show"
+      x.type = "text";
+      f.innerHTML ="Hide";
     } else {
-        x.type = "password";
-        x.innerHTML = "hide";
+      x.type = "password";
+      f.innerHTML ="Show"
     }
+  }
+  document.getElementById("lik").addEventListener("click", function (event) {
+    event.preventDefault();
 
-}
+});
 
 
 
@@ -47,6 +51,7 @@ function login() {
     if (!matchedUseremail) {
         text = "Not valid"
         console.log('invalid pss');
+        // return;
     }
     //  if(!matchedUseremail){
     //     text="Not valid"
@@ -57,7 +62,7 @@ function login() {
         // newlnk.href = "cart-three.html";
         window.location.href = 'cart-three.html';
     }
-    // document.getElementById("foremail").innerHTML= text;
+    document.getElementById("foremail").innerHTML= text;
     document.getElementById("forpass").innerHTML = text;
     console.log("working?")
 }
