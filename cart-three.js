@@ -61,8 +61,7 @@ function addToCart(productId) {
     cart = cart.map(item =>
       item.id === productId ? { ...item, quantity: item.quantity + 1 } : item
     );
-  } else {
-    cart.push({ ...productToAdd, quantity: 1 });
+  } else {    cart.push({ ...productToAdd, quantity: 1 });
   }
 
   displayCart();
@@ -70,16 +69,14 @@ function addToCart(productId) {
 
 const decreaseQuantity = (productId) => {
   const itemIndex = cart.findIndex(item => item.id === productId);
-  if (itemIndex > -1) {
-    const item = cart[itemIndex];
-    if (item.quantity > 1) {
-      cart[itemIndex].quantity -= 1;
-    }
-    else {
-      cart.splice(itemIndex, 1);
-    }
-    displayCart();
+  const item = cart[itemIndex];
+  if (item.quantity > 1) {
+    item.quantity -= 1;
   }
+  else {
+    cart.splice(itemIndex, 1);
+  }
+  displayCart();
 };
 
 
@@ -107,9 +104,15 @@ function displayCart() {
        <button style="width: 80px;" class="tf" data-id="${item.id}">Decrease</button>
       </div>
     </div>
-  `).join('');
+  });
+  `);
 
-  const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  let totalAmount = 0;
+  cart.forEach(item => {
+    totalAmount += item.price * item.quantity;
+  });
+
+
   cartContainer.innerHTML = cartHTML + `
     <div class="total-amount">
       <h3 style="text-align:center" >Total Rs: ${totalAmount}</h3>
