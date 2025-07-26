@@ -41,29 +41,36 @@ function myFunction() {
 function login() {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
-    let text;
+    let text1 =document.getElementById("foremail");
+    let text2 =document.getElementById("forpass");
 
     const vertxt = JSON.parse(localStorage.getItem("txt"));
 
     const matchedUseremail = vertxt.find(user => user.email === email && user.password === password);
     console.log(matchedUseremail);
     // const matchedUserPass = users.find(user => user.password === password);
-    if (!matchedUseremail) {
-        text = "Not valid"
-        console.log('invalid pss');
-        // return;
+    if(!email || !password){
+        text2.innerHTML = "fill the fields";
+        // text1.innerHTML = "fill the fields";
+        return;
     }
-    //  if(!matchedUseremail){
-    //     text="Not valid"
-    // }
+
+        if (!matchedUseremail) {
+            text1.innerHTML = "Not valid"
+            text1.innerHTML = "Not valid"
+            console.log('invalid pss');
+            return;
+        }
     else {
-        text = "Pass matched";
-        // newlnk = document.getElementById("newpge");
-        // newlnk.href = "cart-three.html";
-        window.location.href = 'cart-three.html';
+
+        text2.innerHTML = "Pass matched";
+        text1.innerHTML = "Email matched";
+        text2.style.color="white";
+        text1.style.color="white";
+        setTimeout(() => {
+            location.href = "cart-three.html";
+          }, 2000);
     }
-    document.getElementById("foremail").innerHTML= text;
-    document.getElementById("forpass").innerHTML = text;
     console.log("working?")
 }
 

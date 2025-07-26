@@ -13,13 +13,14 @@ body {
 
 .boss {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 1575px;
+    /* flex-direction: row-reverse; */
+    margin-bottom: 100px;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
+    margin-right: 124px;
 }
 
 .b-one {
@@ -212,25 +213,28 @@ img {
 }
 
 .ob {
-    display: flex;
+    /* display: flex;
+    width: 212px;
+    justify-content: space-between; */
+    /* display: flex;
     margin-top: -55px;
     padding-bottom: 105px;
     width: 300px;
     height: 57px;
     margin-left: 26px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 a {
-    border: 1px solid transparent;
+    /* border: 1px solid transparent; */
     color: #5e5e5e;
 }
 
-.li {
+/* .li {
     border: none;
     cursor: pointer;
-}
+} */
 
 .li:hover {
     border: none;

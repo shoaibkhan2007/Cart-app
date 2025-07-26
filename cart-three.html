@@ -11,24 +11,6 @@
             background-color: #5e5e5e;
             color: white;
             padding: 16px;
-            border: none;
-            cursor: pointer;
-            width: 609px;
-            border-radius: 20px;
-            border-top-right-radius: 0px;
-            border-bottom-right-radius: 0px;
-            right: 59px;
-            padding-left: 143px;
-            font-size: 16px;
-            height: 50px;
-            /* z-index: -1; */
-            position: relative;
-        }
-
-        .dropbtn2 {
-            background-color: #5e5e5e;
-            color: white;
-            padding: 16px;
             font-size: 16px;
             border: none;
             cursor: pointer;
@@ -36,9 +18,10 @@
             /* bottom: 0px; */
             width: 720px;
             border-radius: 20px;
-            z-index: -1;
-            position: absolute;
+            /* z-index: -1; */
+            position: relative;
         }
+
 
         .dropbtn:hover,
         .dropbtn:focus {
@@ -95,25 +78,40 @@
         <div class="boss">
             <div class="header">
                 <div class="b-one">
-                    <span>Store</span>
-                </div>
-                <span class="any">Fell free to buy anything!</span>
+
+                    <span>Cartify</span>
+                    <div class="ob" >
+                    <a style="font-size: 40px;" class="li" >Home</a>
+                <a style="font-size: 40px;" class="li" onclick="toggleCart()">Cart</a>
             </div>
+                </div>
+            </div>
+            <!-- <div class="ob">
+                <a style="font-size: 40px;" >Home</a>
+                <a style="font-size: 40px;" class="li" onclick="toggleCart()">Cart</a>
+    
+            </div> -->
+            
         <!-- </div> -->
         <!-- <div class="crazyy"> -->
-            <h1 class="low">Cart Item</h1>
+            <!-- <h1 class="low">Cart Item</h1>
             <div class="crazy" id="cart-container" style="display: none;">
-            </div>
-        </div>
-        <div class="ob">
+            </div> -->
+        <!-- </div> -->
+        <!-- <div class="ob">
+            <a style="font-size: 40px;" >Home</a>
             <a style="font-size: 40px;" class="li" onclick="toggleCart()">Cart</a>
             <a href="cart.html" class="li">Sign out</a>
 
+        </div> -->
+        <div class="out" >
+            <a href="cart.html" class="li">Sign out</a>
         </div>
+    </div>
         <div class="dropdown">
             <div class="ff">
                 <button class="dropbtn" onclick="dropdown()">Dropdown</button>
-                <button class="dropbtn2">Dropdown</button>
+                <!-- <button class="dropbtn2">Dropdown</button> -->
 
             </div>
             <div id="myDropdown" class="dropdown-content">
