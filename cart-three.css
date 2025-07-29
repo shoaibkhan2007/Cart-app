@@ -16,11 +16,15 @@ body {
     justify-content: space-around;
     width: 1575px;
     /* flex-direction: row-reverse; */
-    margin-bottom: 100px;
+    margin-top: 35px;
+    margin-bottom: 56px;
 }
 
 .header {
     margin-right: 124px;
+    width: 300px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .b-one {
@@ -132,19 +136,20 @@ img {
 }
 
 .item-listing {
-    margin-left: 66px;
+    /* margin-left: 66px; */
     margin-bottom: 15px;
     display: flex;
-    margin-right: 151px;
+    margin-right: 90px;
     align-items: center;
     justify-content: space-evenly;
 }
 
 #cart-display {
+    margin-left: 265px;
+    /* margin-right: 142px; */
     display: flex;
     flex-wrap: wrap;
     margin-top: 80px;
-    width: 1578px;
 }
 
 .image-container {
