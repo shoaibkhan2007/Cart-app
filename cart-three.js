@@ -1,10 +1,11 @@
 
 const cartItems = [
-  { id: 'p1', name: 'Laptop', category: 'Computer Accessories', image: 'product-img.jpg', price: 1200, quantity: 1 },
-  { id: 'p2', name: 'Iphone 11', category: 'Mobile Phoneeeeeeee', image: 'product-img.jpg', price: 25, quantity: 2 },
-  { id: 'p3', name: 'Mouse', category: 'Computer Accessories', image: 'product-img.jpg', price: 30, quantity: 1 },
-  { id: 'p4', name: 'Iphone 14 pro', category: 'Mobile Phoneeeeeeee', image: 'product-img.jpg', price: 50, quantity: 1 },
-  { id: 'p5', name: 'Keyboard', category: 'Computer Accessories', image: 'product-img.jpg', price: 75, quantity: 1 }
+  { id: 'p1', name: 'Laptop', category: 'Computer Accessories', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 1200, quantity: 1 },
+  { id: 'p2', name: 'Iphone 11', category: 'Mobile Phoneeeeeeee', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 25, quantity: 2 },
+  { id: 'p3', name: 'Mouse', category: 'Computer Accessories', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 30, quantity: 1 },
+  { id: 'p4', name: 'Iphone 14 pro', category: 'Mobile Phoneeeeeeee', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 50, quantity: 1 },
+  { id: 'p5', name: 'Keyboard', category: 'Computer Accessories', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 75, quantity: 1 },
+  { id: 'p6', name: 'Iphone 11 pro', category: 'Mobile Phoneeeeeeee', image: 'Adler\ Leather\ Pen\ Pot\ -\ Smoke\ -\ Standard\ Eco-Packaging.jpeg', price: 100, quantity: 1 }
 ];
 
 // let cart = [];

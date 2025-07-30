@@ -1,0 +1,30 @@
+body{
+    background-color: #3f372c;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.boss{
+    display: flex;
+    justify-content: space-around;
+    width: 1575px;
+    /* flex-direction: row-reverse; */
+    margin-top: 35px;
+    margin-bottom: 33px;
+}
+.header{
+    margin-right: 124px;
+    width: 300px;
+    display: flex
+;
+    justify-content: space-evenly;
+}
+.li{
+    text-decoration: none;
+}
+a{
+    color: #5e5e5e;
+}
+.on{
+    width: 373px;
+    text-align: end;
+}
